@@ -1,4 +1,4 @@
-var id = 0;
+var id = 3;
 
  export const checkTodo = (todo) => {
    return {

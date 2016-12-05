@@ -1,17 +1,17 @@
 const initialState = {
   cart: [
     {
-      id: 14,
+      id: 0,
     title: "uno",
     checked: false
   },
   {
-    id: 24,
+    id: 1,
   title: "dos",
   checked: true
   },
   {
-    id: 34,
+    id: 2,
   title: "tres",
   checked: false
   }
@@ -34,40 +34,18 @@ export default function mainReducer(state = initialState.cart, action){
        return state.filter(todo => todo.id !== action.todo.id);
     break;
     case "CHECK_TODO":
-    var item = state.filter(todo => todo.id === action.todo.id);
-    console.log(item);
-    return state.update(state, {
+    var item = state.filter(todo => todo.id === action.todo.id)[0];
+    var index = state.indexOf(item);
+    item.title ="e";
+    item.checked = !item.checked;
+    state[index] = item;
+    return state;/*.update(state, {
       collection: {
         [34]: {checked:true}
       }
-    })
-       return state.filter(todo => todo.id !== action.todo.id);
+    })*/
     break;
     default:
       return state
   }
 }
-
-
-
-
-
-/*export default function(){
-  return [
-    {
-      id: 1,
-    title: "uno",
-    checked: false
-  },
-  {
-    id: 2,
-  title: "dos",
-  checked: true
-  },
-  {
-    id: 3,
-  title: "tres",
-  checked: false
-  }
-  ]
-}*/
