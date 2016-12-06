@@ -1,3 +1,8 @@
+// REVIEW
+// Try extracting the key press handler
+// to a separate function. It is good to keep
+// code outside templates.
+// Nice use of react-redux!
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
