@@ -19,18 +19,12 @@ export default function mainReducer(state = initialState, action) {
         case "REMOVE_TODO":
             return state.filter(todo => todo.id !== action.todo.id);
         case "CHECK_TODO":
-           state.map(todo=>{
-              if( todo.id == action.todo.id)
-              {
-                todo.checked = !todo.checked;
-              }
-              else {
-                return state;
-              }
-            }
-            )            
-            return state;
-              break;
+            return state.map(todo => {
+                if (todo.id == action.todo.id) {
+                    todo.checked = !todo.checked;
+                }
+                return todo;
+            })
         default:
             return state
     }
