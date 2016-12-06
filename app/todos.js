@@ -1,13 +1,12 @@
 import React from 'react';
 import { createStore } from 'redux'
 import ReactDOM from 'react-dom';
-import allReducers from 'reducers/allreducers'
 import {Provider} from 'react-redux';
-import App from 'components/todocomponent';
+import Reducer from 'reducers/reducer'
+import App from 'todocomponent';
 
-const store = createStore(allReducers);
-console.log(store.getState());
-document.addEventListener('DOMContentLoaded', () => {
+export function start () {
+const store = createStore(Reducer);
 
 ReactDOM.render(
   <Provider store = {store}>
@@ -16,4 +15,4 @@ ReactDOM.render(
   ,
   document.getElementById('app')
 );
-});
+}

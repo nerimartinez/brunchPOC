@@ -5,16 +5,20 @@ import { addTodo} from '../actions/index';
 
 class NewTodoInput extends Component{
 
+ keyPressHandler(e){
+  var key = e.which || e.keyCode;
+  if (key === 13) {
+      this.props.addTodo(document.getElementById("newTodoInput").value);//TODO:change this
+      document.getElementById("newTodoInput").value = "";//TODO:change this
+  }
+}
+
   render(){
     return (
       <div>
           <input id="newTodoInput" placeholder="Enter a new todo"
           onKeyPress={e=>{
-            var key = e.which || e.keyCode;
-            if (key === 13) {
-                this.props.addTodo(document.getElementById("newTodoInput").value);//TODO:change this
-                document.getElementById("newTodoInput").value = "";//TODO:change this
-            }
+                this.keyPressHandler(e);
           }}></input>
       </div>
     )
