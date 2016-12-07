@@ -3,6 +3,14 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { addTodo} from '../actions/index';
 
+// The way to avoid using document.getElementById and acessing the DOM
+// directly is to add an event handler to <input/> and use a local state.
+// Something like:
+// <input onChange={(event) => this.setState({newTodoText: event.target.value})}
+// You can also make it go through Redux here, 
+// but local state is not always evil,
+// specially in this case 
+// where you are just storing the value from a form field.
 class NewTodoInput extends Component{
 
  keyPressHandler(e){
