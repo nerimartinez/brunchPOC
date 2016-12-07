@@ -2,25 +2,18 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {delTodo, checkTodo} from '../actions/index';
+import TodoItem from './todo-item';
 
 class TodoList extends Component{
-
-  createListItems(){
-    return this.props.todos.map((todo) =>{
-    return (
-      <li key={todo.id}>
-        <input type="checkbox" checked={todo.checked} onChange={() => this.props.checkTodo(todo)}/>
-        <span>{todo.title} - </span>
-        <span onClick={() => this.props.delTodo(todo)} style={{color: 'red'}}>X</span>
-      </li>
-    );
-  });
-  }
 
   render(){
     return (
       <ul>
-        {this.createListItems()}
+        {this.props.todos.map((todo) =>{
+        return (
+          <TodoItem key={todo.id} todo={todo} del={this.props.delTodo} check={this.props.checkTodo}/>
+        );
+      })}
       </ul>
     )
   };
