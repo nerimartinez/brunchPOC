@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {delTodo, checkTodo} from '../actions/index';
 import TodoItem from './todo-item';
 
 class TodoList extends Component{
@@ -11,16 +9,12 @@ class TodoList extends Component{
       <ul>
         {this.props.todos.map((todo) =>{
         return (
-          <TodoItem key={todo.id} todo={todo} del={this.props.delTodo} check={this.props.checkTodo}/>
+          <TodoItem key={todo.id} todo={todo} />
         );
       })}
       </ul>
     )
   };
-}
-
-function matchDispatchToProps (dispatch){
-  return bindActionCreators({delTodo: delTodo, checkTodo: checkTodo}, dispatch)
 }
 
 function mapStateToProps(state){
@@ -29,4 +23,4 @@ function mapStateToProps(state){
    };
 }
 
-export default connect (mapStateToProps, matchDispatchToProps)(TodoList);
+export default connect (mapStateToProps)(TodoList);
