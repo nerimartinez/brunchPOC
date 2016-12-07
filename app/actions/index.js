@@ -1,8 +1,18 @@
+// I think the index file should just
+// import stuff and export stuff.
+// Move this to an actions.js file.
+
+// import * as t, and you can
+// access the members as t.CHECK_TODO
+// for example. This way you can
+// protect the global namespace and keep it clean.
 import {
     CHECK_TODO,
     ADD_TODO,
     REMOVE_TODO
 } from './action-types';
+
+// This should come as the first statement in file.
 "use strict";
 
 export const checkTodo = (todo) => {

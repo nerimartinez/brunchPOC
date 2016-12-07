@@ -3,6 +3,14 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {delTodo, checkTodo} from '../actions/index';
 
+// Extract the code inside map to a TodoListItem component.
+// Pass each todo as a prop to the Item component.
+// This will also simplify your code and you'll be able
+// to put all render code inside render().
+// It will be simpler. Instead of having
+// a method return all items,
+// iterate on render().
+
 class TodoList extends Component{
 
   createListItems(){
