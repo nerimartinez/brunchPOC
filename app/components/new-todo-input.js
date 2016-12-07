@@ -8,8 +8,6 @@ class NewTodoInput extends Component{
  keyPressHandler(e){
   var key = e.which || e.keyCode;
   if (key === 13) {
-      //this.setState({title: e.target.value})
-
       this.props.addTodo(e.target.value);
       e.target.value = "";
   }
