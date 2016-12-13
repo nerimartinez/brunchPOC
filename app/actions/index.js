@@ -1,5 +1,8 @@
 "use strict";
 import * as t from './action-types';
+import fetch from 'isomorphic-fetch';
+
+const getURL = "http://localhost:4000/todos";
 
 export const checkTodo = (todo) => {
     return {
@@ -26,6 +29,26 @@ export const delTodo = (todo) => {
     }
 };
 
+ function loadTodos  (todos)  {
+  console.log("todos");
+    return {
+        type: t.LOAD_TODO,
+        todos: todos
+    }
+};
+
 function getRandomId() {
     return new Date().getTime();
+}
+
+export function getTodos(dispatch)
+{
+  return dispatch =>{ fetch(getURL)
+    .then((response) => {
+      return response.json();
+    })
+    .then((res) => {
+       dispatch(loadTodos(res.data));
+    })
+  }
 }

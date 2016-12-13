@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import TodoItem from './todo-item';
+import {bindActionCreators} from 'redux';
+import {loadTodos, getTodos} from '../actions/index';
 
 class TodoList extends Component{
+
+  componentWillMount() {
+    this.props.getTodos();
+    }
 
   render(){
     return (
@@ -23,4 +29,8 @@ function mapStateToProps(state){
    };
 }
 
-export default connect (mapStateToProps)(TodoList);
+function matchDispatchToProps (dispatch){
+  return bindActionCreators({loadTodos, getTodos}, dispatch)
+}
+
+export default connect (mapStateToProps, matchDispatchToProps)(TodoList);

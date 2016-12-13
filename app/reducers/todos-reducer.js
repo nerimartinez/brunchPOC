@@ -1,21 +1,13 @@
 import * as t from '../actions/action-types';
 
-const initialState = [{
-    id: 0,
-    title: "uno",
-    checked: false
-}, {
-    id: 1,
-    title: "dos",
-    checked: true
-}, {
-    id: 2,
-    title: "tres",
-    checked: false
-}];
+const initialState = [];
 
 export default function mainReducer(state = initialState, action) {
     switch (action.type) {
+        case t.LOAD_TODO:
+            console.log("action.todos");
+            console.log(action.todos);
+            return action.todos;
         case t.ADD_TODO:
             return state.concat(action.todo);
         case t.REMOVE_TODO:
