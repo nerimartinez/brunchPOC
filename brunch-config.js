@@ -11,5 +11,12 @@ module.exports = {
 
   plugins: {
     babel: {presets: ['es2015', 'react']}
+  },
+  npm: {
+    enabled: true,
+    globals: { // bootstrap-sass' JavaScript requires both '$' and 'jQuery' in global scope
+      $: 'jquery',
+      jQuery: 'jquery'
+    }
   }
 };

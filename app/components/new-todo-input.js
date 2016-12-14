@@ -8,8 +8,8 @@ class NewTodoInput extends Component{
  keyPressHandler(e){
   var key = e.which || e.keyCode;
   if (key === 13) {
-      this.props.addTodo(document.getElementById("newTodoInput").value);//TODO:change this
-      document.getElementById("newTodoInput").value = "";//TODO:change this
+      this.props.addTodo(e.target.value);
+      e.target.value = "";
   }
 }
 

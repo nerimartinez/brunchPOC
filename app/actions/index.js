@@ -1,20 +1,16 @@
-import {
-    CHECK_TODO,
-    ADD_TODO,
-    REMOVE_TODO
-} from './action-types';
 "use strict";
+import * as t from './action-types';
 
 export const checkTodo = (todo) => {
     return {
-        type: CHECK_TODO,
+        type: t.CHECK_TODO,
         todo: todo
     }
 };
 
 export const addTodo = (todoTitle) => {
     return {
-        type: ADD_TODO,
+        type: t.ADD_TODO,
         todo: {
         id: getRandomId(),
         title: todoTitle,
@@ -25,7 +21,7 @@ export const addTodo = (todoTitle) => {
 
 export const delTodo = (todo) => {
     return {
-        type: REMOVE_TODO,
+        type: t.REMOVE_TODO,
         todo: todo
     }
 };
